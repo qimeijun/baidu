@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>百度首页</title>
+        <link href="css/style.css" type="text/css" rel="stylesheet"/>
+        <!--[if lt IE 9]>
+        <style type="text/css">
+            .baidu-search-fix {
+                
+                
+            }
+        </style>
+       <![endif]-->
+    </head>
+    <body>
+        <div class="header default-bottom cf">
+            <div class="header-left cf">
+                <span class="header-font"><!--[if lt IE 9]>北京:<![endif]--></span>
+                <span class="header-font ">
+                    <span class="header-limage"></span>
+                    <em style="float:left; padding-left: 5px;">3℃</em>
+                </span>
+                <span class="header-font ">
+                    <span class="header-color">良</span>
+                    <em style="padding-left: 5px">51</em>
+                </span>
+                <span class="header-font"> | </span>
+                <a class="header-font header-a" href="#">宝箱</a>
+                <a class="header-font header-a" id="b-header-skin" href="#">换肤</a>
+                <a class="header-font header-a" id="b-notice" href="#">消息</a>
+            </div>
+            <div class="header-right cf">
+                <a class="header-right-a" href="#">糯米</a>
+                <a class="header-right-a" href="#">新闻</a>
+                <a class="header-right-a" href="#">hao123</a>
+                <a class="header-right-a" href="#">视频</a>
+                <a class="header-right-a" href="#">贴吧</a>
+                <a class="header-right-a h-special" id="h-user" href="#">Seven</a>
+                <a class="header-right-a h-special" id="h-setting" href="#">设置</a>
+                <span class="header-right-product white-color" id="b-more-products">更多产品</span>
+            </div>
+            <div class="header-other-setting" id="setting-item">
+                <ul class="header-setting-item default-border" id="setting-person">
+                    <div class="setting-tra"></div>
+                    <li><a href="#">我的VIP</a></li>
+                    <li><a href="#">个人中心</a></li>
+                    <li><a href="#">账号设置</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                    <li><a href="#">退出</a></li>
+                </ul>
+                <ul class="header-setting-item default-border" id="setting-set">
+                    <div class="setting-tra"></div>
+                    <li><a href="#">搜索设置</a></li>
+                    <li><a href="#">高级搜索</a></li>
+                    <li><a href="#">关闭预测</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                    <li><a href="#">搜索历史</a></li>
+                </ul>
+            </div>
+            <!-- 消息提示框 -->
+            <div class="header-notice default-border zbox-shadow" id="notice-box">
+                <div class="setting-tra notice-tra"></div>
+                <div class="header-no-msg default-bottom">目前没有新消息</div>
+                <div class="header-no-btn">
+                    <div class="no-btn white-color clear-btn">
+                        <span class="clear-btn-bg"></span>
+                        <span>清空消息</span>
+                    </div>
+                    <div class="no-btn white-color set-btn">
+                        <span class="set-btn-bg"></span>
+                        <span>消息设置</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 换肤 -->
+            <div class="header-skin cf zbox-shadow" id="b-skin-show">
+                <div style="width:910px; margin:auto">
+                    <div class="header-skin-nav border-bottom cf">
+                        <ul class="skin-nav-ul" id="b-skin-nav">
+                            <li class="skin-nav-li skin-active" type="hot">热门</li>
+                            <li class="skin-nav-li" type="game">游戏</li>
+                            <li class="skin-nav-li" type="cartoon">卡通</li>
+                            <li class="skin-nav-li" type="goddess">女神降临</li>
+                            <li class="skin-nav-li" type="star">明星</li>
+                            <li class="skin-nav-li" type="scenery">风景</li>
+                            <li class="skin-nav-li" type="simple">简约</li>
+                            <li class="skin-nav-li" type="child-free">小清新</li>
+                            <li class="skin-nav-li" type="self">自定义</li>
+                            <li class="skin-nav-li" type="recent">最近使用</li>
+                            <li class="skin-bg-opacity">
+                                背景透明度
+                                <span class="skin-bg-strip" id="b-skin-bg-strip">
+                                    <span class="skin-bg-square" id="b-skin-bg-square">
+                                        <em class="skin-bg-text">25%</em>
+                                    </span>
+                                </span>
+                            </li>
+                            <li class="skin-bg-no" id="b-skin-bgno"><span class="skin-bg-no-bg"></span>不使用换肤</li>
+                            <li class="skin-close-li" id="b-skin-close">
+                                <span class="skin-close-bg"></span>
+                                <span>收起</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header-skin-img">
+                        <div class="skin-img-msg cf" id="b-img-msg"></div>
+                        <div class="header-skin-img-left" id="b-skin-img">
+                            <table class="header-skin-table" cellspacing="0" cellpadding="0" id="b-skin-img-table">
+                                <tr>
+                                    <td colspan="2" rowspan="2"><img class="skin-img-big" src="images/832.jpg" alt="832.jpg"/></td>
+                                    <td><img class="skin-img-small" src="images/827.jpg" alt="827.jpg"/></td>
+                                    <td><img class="skin-img-small" src="images/830.jpg" alt="830.jpg"/></td>
+                                    <td><img class="skin-img-small" src="images/831.jpg" alt="831.jpg"/></td>
+                                    <td><img class="skin-img-small" src="images/818.jpg" alt="818.jpg"/></td>
+                                </tr>
+                                <tr>
+                                    <td><img class="skin-img-small" src="images/828.jpg" alt="828.jpg"/></td>
+                                    <td colspan="2" rowspan="2"><img class="skin-img-big" src="images/817.jpg" alt="817.jpg"/></td>
+                                    <td><img class="skin-img-small" src="images/819.jpg" alt="819.jpg"/></td>
+                                </tr>
+                                <tr>
+                                    <td><img class="skin-img-small" src="images/833.jpg" alt="833.jpg"/></td>
+                                    <td><img class="skin-img-small" src="images/834.jpg" alt="834.jpg"/></td>
+                                    <td><img class="skin-img-small" src="images/829.jpg" alt="829.jpg"/></td>
+                                    <td><img class="skin-img-small" src="images/836.jpg" alt="836.jpg"/></td>
+                                </tr>
+                            </table>
+                            <div class="skin-img-nav cf" id="b-skin-imgnav">
+                                <ul class="cf">
+                                    <li class="img-nav-pre"></li>
+                                    <li class="img-nav-active"></li>
+                                    <li class="img-nav-center"></li>
+                                    <li class="img-nav-center"></li>
+                                    <li class="img-nav-center"></li>
+                                    <li class="img-nav-next"></li>
+                                </ul>
+                            </div>
+                            <div class="header-skin-change" id="b-skin-change">
+                                <span class="skin-change-left" id="b-skin-random">
+                                    <div class="skin-change-checkbox"></div>开启自动换肤
+                                </span>
+                                <span class="skin-change-right">不止有换肤哟！快搭乘传送门，体验超赞的"守望先锋"之旅吧!</span>
+                            </div>
+                        </div>
+                        <div class="header-skin-self-left" id="b-skin-self">
+                            <div class="skin-upload-img"></div>
+                            <div class="skin-upload-set">
+                                <p class="skin-upload-again"></p>
+                                <p style="margin-top: 20px">百度LOGO</p>
+                                <p>
+                                    <input type="radio" name="s-logo" value="深色背景推荐"/><span class="skin-dark-bg"></span>（深色背景推荐）
+                                </p>
+                                <p>
+                                    <input type="radio" name="s-logo" value="浅色背景推荐"/><span class="skin-light-bg"></span>（浅色背景推荐）
+                                </p>
+                                <p class="skin-bg-define">
+                                    <span class="skin-bg-use"></span>
+                                    <span class="skin-bg-cancel"></span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="header-skin-result" id="b-skin-result-show">
+                            <div class="skin-result-show">
+                                <img id="b-skin-result" src="images/836.jpg" alt="baidu-result.png"/>
+                            </div>
+                            <div class="skin-result-part"></div>
+                            <p style="margin-top: 5px;">背景皮肤效果预览</p>
+                        </div>
+                        <div class="header-skin-recent-use" id="b-skin-recent-use">
+                            <table class="skin-recent-use-table">
+                                <tr>
+                                    <td><img src="images/21.jpg" alt="21.jpg"/></td>
+                                    <td><img src="images/50.jpg" alt="50.jpg"/></td>
+                                    <td><img src="images/21.jpg" alt="21.jpg"/></td>
+                                    <td><img src="images/50.jpg" alt="50.jpg"/></td>
+                                    <td><img src="images/21.jpg" alt="21.jpg"/></td>
+                                    <td><img src="images/50.jpg" alt="50.jpg"/></td>
+                                    <td><img src="images/21.jpg" alt="21.jpg"/></td>
+                                    <td><img src="images/50.jpg" alt="50.jpg"/></td>
+                                    <td><img src="images/21.jpg" alt="21.jpg"/></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 更多产品 隐藏导航 -->
+        <div class="more-products" id="b-item-products">
+            <a href="#">
+                <img src="images/music.png"/>
+                <p>音乐</p>
+            </a>
+            <a href="#">
+                <img src="images/image.png"/>
+                <p>图片</p>
+            </a>
+            <a href="#">
+                <img src="images/zhidao.png"/>
+                <p>知道</p>
+            </a>
+            <a href="#">
+                <img src="images/wenku.png"/>
+                <p>文库</p>
+            </a>
+            <a href="#">
+                <img src="images/bang.png"/>
+                <p>风云榜</p>
+            </a>
+            <a href="#">
+                <img src="images/tuiguang.png"/>
+                <p>百度推广</p>
+            </a>
+            <a href="#">全部产品&lt;&lt;</a>
+        </div>
+
+        <!-- 搜索框及logo -->
+        <div class="baidu-logo">
+            <img src="images/logo.png" height="129px" width="270px"/>
+            <!--<img src="images/logo_white.png" height="129px" width="270px"/>-->
+            <div class="baidu-search" id="b-baidu-search">
+                <div class="baidu-sborder">
+                    <input type="text" class="baidu-input"/>
+                    <span class="baidu-camera"></span>
+                    <input type="button" class="baidu-button white-color" value="百度一下"/>
+                </div>
+            </div>
+            <!-- 隐藏的搜索框 -->
+            <div class="baidu-search-fix" id="b-baidu-search-fix">
+                <div style="width: 893px; margin: auto; text-align: left;">
+                    <img src="images/logo-small.png" style="vertical-align: middle;"/>
+                    <input type="text" class="baidu-input"/>
+                    <span class="baidu-camera"></span>
+                    <input type="button" class="baidu-button white-color" value="百度一下"/>
+                </div>
+            </div>
+            <!-- 隐藏的camera -->
+            <div class="baidu-camera-url default-border zbox-shadow">
+                <div class="camera-url-content">
+                    <span class="camera-url-move">拖拽图片到这里</span>
+                    <span class="camera-url-add"><span>
+                </div>
+                <div class="camera-url-btn default-border">
+                    <input type="file"/>
+                    <span class="camera-url-icon"></span>
+                    <span class="camera-url-font">本地上传图片<span>
+                </div>
+                <div class="camera-url-close">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <!-- 新闻栏 -->
+        <div class="baidu-news cf" id="b-news">
+            <div class="baidu-news-nav default-border bg-color" id="b-baidu-news">
+                <ul class="news-nav default-bottom cf" id="b-news-nav">
+                    <!--<li><span class="baidu-my-icon"></span><span>我的关注</span></li>
+                    <li id="nav-active">推荐</li>
+                    <li>导航</li>
+                    <li>视频</li>
+                    <li>购物</li>
+                    -->
+                </ul>
+                <span class="baidu-setting" id="b-menu-set"></span>
+                <div class="baidu-setting-detail default-bottom zbox-shadow" id="b-menu-detail">
+                    <div class="setting-top-menu default-bottom cf">
+                        <div class="setting-detail-left">
+                            已订阅频道<br/>
+                            <span class="setting-my-follow default-border">我的关注</span>
+                            <div class="setting-exists-menu" id="b-exists-menu">
+                                <!--<span class="setting-menu"><span class="setting-bg-left"></span>推荐</span>
+                                <span class="setting-menu"><span class="setting-bg-left"></span>导航</span>
+                                <span class="setting-menu"><span class="setting-bg-left"></span>视频</span>
+                                <span class="setting-menu"><span class="setting-bg-left"></span>小说</span>-->
+                            </div>
+                        </div>
+                        <div class="setting-detail-right">
+                            未订阅频道
+                            <div class="setting-needadd-menu" id="b-needadd-menu">
+                                <!--<span class="setting-no-menu default-border"><span class="setting-bg-right"></span>购物</span>
+                                <span class="setting-no-menu default-border"><span class="setting-bg-right"></span>体育</span>
+                                <span class="setting-no-menu default-border"><span class="setting-bg-right"></span>音乐</span>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="setting-bottom">
+                        <span class="setting-bottom-font"><span class="setting-hidden"></span>隐藏频道</span>
+                        <span class="setting-bottom-font"><span class="setting-choose default-border"></span>情景推荐<span class="setting-problem"></span></span>
+                    </div>
+                </div>
+                <div class="baidu-news-about">
+                    <div class="baidu-news-left">
+                        <div class="baidu-news-recommend">
+                            <div class="news-line default-bottom"></div>
+                            <div class="news-rec-icon"></div><span>以下信息根据您的兴趣推荐</span>
+                            <div class="news-line default-bottom"></div>
+                        </div>
+                        <div class="baidu-news-show">
+                            <table class="baidu-new-table default-bottom">
+                                <tr>
+                                    <td ><img src="images/baidu-2.jpg" height="119px" width="179px"/></td>
+                                    <td class="baidu-news-font">
+                                        <a href="#">美联储终于加息了，中国人生活的大麻烦已经出现了？</a>
+                                        <span class="baidu-news-time">新浪网&nbsp;12-19 08:29</span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="baidu-new-table default-bottom">
+                                <tr>
+                                    <td class="baidu-news-font">
+                                        <a href="#">【为钱工作】or【为兴趣工作】？</a>
+                                        <span class="baidu-news-time">新浪网&nbsp;12-19 08:29</span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="baidu-new-table default-bottom">
+                                <tr>
+                                    <td ><a href="#">看完这些香港电影，可能一不留神就成了赌神和赌史砖家</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="images/baidu-2.jpg" height="119px" width="175px"/>
+                                        <img src="images/baidu-2.jpg" height="119px" width="175px"/>
+                                        <img src="images/baidu-2.jpg" height="119px" width="175px"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="baidu-news-time">新浪网&nbsp;12-19 08:29</span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="baidu-new-table default-bottom">
+                                <tr>
+                                    <td ><a href="#">看完这些香港电影，可能一不留神就成了赌神和赌史砖家</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="images/baidu-2.jpg" height="119px" width="175px"/>
+                                        <img src="images/baidu-2.jpg" height="119px" width="175px"/>
+                                        <img src="images/baidu-2.jpg" height="119px" width="175px"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="baidu-news-time">新浪网&nbsp;12-19 08:29</span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="baidu-new-table default-bottom">
+                                <tr>
+                                    <td ><a href="#">看完这些香港电影，可能一不留神就成了赌神和赌史砖家</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="images/baidu-2.jpg" height="119px" width="175px"/>
+                                        <img src="images/baidu-2.jpg" height="119px" width="175px"/>
+                                        <img src="images/baidu-2.jpg" height="119px" width="175px"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="baidu-news-time">新浪网&nbsp;12-19 08:29</span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="baidu-new-table default-bottom">
+                                <tr>
+                                    <td ><a href="#">看完这些香港电影，可能一不留神就成了赌神和赌史砖家</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="images/baidu-2.jpg" height="119px" width="175px"/>
+                                        <img src="images/baidu-2.jpg" height="119px" width="175px"/>
+                                        <img src="images/baidu-2.jpg" height="119px" width="175px"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="baidu-news-time">新浪网&nbsp;12-19 08:29</span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="baidu-new-table default-bottom">
+                                <tr>
+                                    <td ><a href="#">看完这些香港电影，可能一不留神就成了赌神和赌史砖家</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="images/baidu-2.jpg" height="119px" width="175px"/>
+                                        <img src="images/baidu-2.jpg" height="119px" width="175px"/>
+                                        <img src="images/baidu-2.jpg" height="119px" width="175px"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="baidu-news-time">新浪网&nbsp;12-19 08:29</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="baidu-news-right cf" id="b-baidu-news-right">
+                        <div class="baidu-news-rtop">
+                            <span class="baidu-news-hot">实时热点</span>
+                            <div class="baidu-news-change">
+                                <span class="news-change-icon"></span>
+                                <span>换一换</span>
+                            </div>
+                        </div>
+                        <div class="baidu-news-rtop-list">
+                            <ul class="left-ul">
+                                <li><a href="#">2016TVB同台</a></li>
+                                <li><a href="#">央春晚拒问题明星</a></li>
+                                <li><a href="#">上百祖坟被铲平</a></li>
+                                <li><a href="#">停止英语等级考试</a></li>
+                                <li><a href="#">赵琪否认结婚</a></li>
+                                <li><a href="#">梅艳芳妈想领遗产</a></li>
+                                <li><a href="#">梁朝伟调皮献花</a></li>
+                                <li><a href="#">23年后起诉养父</a></li>
+                            </ul>
+                            <ul class="right-ul">
+                                <li><a href="#">因破坏军婚被判刑</a></li>
+                                <li><a href="#">雾霾将扩11省市</a></li>
+                                <li><a href="#">南昌挖出古墓</a></li>
+                                <li><a href="#">莎莎宝嘉去世</a></li>
+                                <li><a href="#">国海证券查假章门</a></li>
+                                <li><a href="#">日月股份今日申购</a></li>
+                                <li><a href="#">林志玲素颜现身</a></li>
+                                <li><a href="#">贼怕被打报警求救</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/index.js"></script>
+    </body>
+</html>
