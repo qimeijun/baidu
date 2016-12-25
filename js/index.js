@@ -23,14 +23,19 @@ var searchInput = document.getElementById("b-baidu-search");
 var searchInputHidden = document.getElementById("b-baidu-search-fix");
 var hotnews = document.getElementById("b-baidu-news-right");
 var baiduNewsDOM = document.getElementById("b-baidu-news");
+var cameraUrlDOM = document.getElementById("b-camera-url");
 window.onscroll = function () {
     if (getScrollTop() >= 165) {
+        // 搜索框
         searchInput.style.display = "none";
         searchInputHidden.style.display = "block";
         // document.getElementsByClassName("baidu-input")[1].focus();
         // 固定实时热点
         hotnews.className = "baidu-news-right hot-fixed";
         hotnews.style.right = (screenW - baiduNewsDOM.offsetWidth) / 2 + "px";
+        // camera 隐藏框
+        cameraUrlDOM.style.position = "fixed";
+        cameraUrlDOM.style.top = "57px";
     } else {
         searchInput.style.display = "block";
         // document.getElementsByClassName("baidu-input")[0].focus();
@@ -38,8 +43,12 @@ window.onscroll = function () {
         // 取消固定实时热点
         hotnews.className = "baidu-news-right";
         hotnews.style.right = "0px";
+
+        cameraUrlDOM.style.position = "absolute";
+        cameraUrlDOM.style.top = "170px";
     }
 }
+
 
 /**
  *  更多产品
@@ -134,20 +143,29 @@ document.onclick = function (event) {
 /**
  *  换肤
  */
+// 换肤
 document.getElementById("b-header-skin").onclick = function (e) {
+    showSkinImg(skinObj.img.hot);
+    // 显示导航
+    var skinNavDOM = document.getElementById("b-skin-nav");
+    var navHTML = '';
+    for (var i = 0; i < skinObj.nav.length; i++) {
+        i === 0 ? navHTML += '<li class="skin-nav-li skin-active" type="'+ skinObj.nav[i].type +'">'+ skinObj.nav[i].name +'</li>'
+                : navHTML += '<li class="skin-nav-li" type="'+ skinObj.nav[i].type +'">'+ skinObj.nav[i].name +'</li>';
+    }
+    skinNavDOM.innerHTML = navHTML;
+
     var skinImgDOM = document.getElementById("b-skin-show");
     (skinImgDOM.style.display == "none") ? (skinImgDOM.style.display = "block") : (skinImgDOM.style.display = "none");
 }
+// 收起
 document.getElementById("b-skin-close").onclick = function (e) {
     var skinImgDOM = document.getElementById("b-skin-show");
     (skinImgDOM.style.display == "none") ? (skinImgDOM.style.display = "block") : (skinImgDOM.style.display = "none");
 }
-document.getElementById("b-skin-bgno").onclick = function () {
-    var skinImgDOM = document.getElementById("b-skin-show");
-    (skinImgDOM.style.display == "none") ? (skinImgDOM.style.display = "block") : (skinImgDOM.style.display = "none");
-}
-var skinBgSquareDOM = document.getElementById("b-skin-bg-square");
-var skinBgStripDOM = document.getElementById("b-skin-bg-strip");
+// 背景透明度
+// var skinBgSquareDOM = document.getElementById("b-skin-bg-square");
+// var skinBgStripDOM = document.getElementById("b-skin-bg-strip");
 // 目前没有任何浏览器支持ontouchstart, 但是有浏览器支持touchstart
 // skinBgSquareDOM.addEventListener("touchstart", function (e) {
 //     console.log(e);
@@ -162,7 +180,7 @@ var skinBgStripDOM = document.getElementById("b-skin-bg-strip");
 //     console.log(e);
 //     console.log("===============end");
 // }, false);
-
+// 点击其他地方消失
 document.getElementById("b-news").onclick = function () {
     document.getElementById("b-skin-show").style.display = "none";
 };
@@ -176,7 +194,9 @@ var skinImgDivDOOM = document.getElementById("b-skin-img");
 var skinSelfDOM = document.getElementById("b-skin-self");
 var skinResultShowDOM = document.getElementById("b-skin-result-show");
 var skinRecentUseDOM = document.getElementById("b-skin-recent-use");
-document.getElementById("b-skin-nav").onclick = function (e) {
+// 点击导航
+var skinNavDOM = document.getElementById("b-skin-nav");
+skinNavDOM.onclick = function (e) {
     for (var i = 0; i < skinliDOM.length; i++) {
         if (skinliDOM[i].className == "skin-nav-li skin-active") {
             skinliDOM[i].className = "skin-nav-li";
@@ -188,6 +208,16 @@ document.getElementById("b-skin-nav").onclick = function (e) {
         clickDOM.className = "skin-nav-li skin-active";
         switch (e.srcElement.getAttribute("type")) {
             case "hot":
+                showSkinImg(skinObj.img.hot);
+                var hotObj = skinObj.samllNav.hot;
+                if (hotObj.length > 0) {
+                    var html = '<ul>';
+                    for (var i = 0; i < hotObj.length; i++) {
+                        i === 0 ? html += '<li class="skin-image-active">'+ hotObj[i] +'<li>'
+                                : html += '<li>'+ hotObj[i] +'<li>';
+                    }
+                    skinImgMsgDOM.innerHTML = html;
+                }
                 skinImgMsgDOM.style.display = "none";
                 skinImgNavDOM.style.display = "block";
                 skinChangeDOM.style.display = "none";
@@ -197,15 +227,16 @@ document.getElementById("b-skin-nav").onclick = function (e) {
                 skinRecentUseDOM.style.display = "none";
                 break;
             case "game":
-                var html = '<ul>'+
-                                '<li class="skin-image-active">守望先锋<li>'+
-                                '<li>魔兽世界<li>'+
-                                '<li>炉石传说<li>'+
-                                '<li>风暴英雄<li>'+
-                                '<li>暗黑破坏神III<li>'+
-                                '<li>星际争霸III</li>'+
-                           '</ul>';
-                skinImgMsgDOM.innerHTML = html;
+                showSkinImg(skinObj.img.game);
+                var gameObj = skinObj.samllNav.game;
+                if (gameObj.length > 0) {
+                    var html = '<ul>';
+                    for (var i = 0; i < gameObj.length; i++) {
+                        i === 0 ? html += '<li class="skin-image-active">'+ gameObj[i] +'<li>'
+                                : html += '<li>'+ gameObj[i] +'<li>';
+                    }
+                    skinImgMsgDOM.innerHTML = html;
+                }
                 skinImgMsgDOM.style.display = "block";
                 skinImgNavDOM.style.display = "none";
                 skinChangeDOM.style.display = "block";
@@ -215,12 +246,16 @@ document.getElementById("b-skin-nav").onclick = function (e) {
                 skinRecentUseDOM.style.display = "none";
                 break;
             case "cartoon":
-                var html = '<ul>'+
-                                '<li class="skin-image-active">冷兔<li>'+
-                                '<li>阿狸<li>'+
-                                '<li>炮炮兵<li>'+
-                          '</ul>';
-                skinImgMsgDOM.innerHTML = html;
+                showSkinImg(skinObj.img.cartoon);
+                var cartoonObj = skinObj.samllNav.cartoon;
+                if (cartoonObj.length > 0) {
+                    var html = '<ul>';
+                    for (var i = 0; i < cartoonObj.length; i++) {
+                        i === 0 ? html += '<li class="skin-image-active">'+ cartoonObj[i] +'<li>'
+                                : html += '<li>'+ cartoonObj[i] +'<li>';
+                    }
+                    skinImgMsgDOM.innerHTML = html;
+                }
                 skinImgMsgDOM.style.display = "block";
                 skinImgNavDOM.style.display = "none";
                 skinChangeDOM.style.display = "none";
@@ -230,19 +265,16 @@ document.getElementById("b-skin-nav").onclick = function (e) {
                 skinRecentUseDOM.style.display = "none";
                 break;
             case "goddess":
-                var html = '<ul>'+
-                                '<li class="skin-image-active">林心如<li>'+
-                                '<li>郑爽<li>'+
-                                '<li>戚薇<li>'+
-                                '<li>佟丽娅<li>'+
-                                '<li>Angelababy<li>'+
-                                '<li>唐嫣</li>'+
-                                '<li>李冰冰</li>'+
-                                '<li>高圆圆</li>'+
-                                '<li>孙俪</li>'+
-                                '<li>姚晨</li>'+
-                           '</ul>';
-                skinImgMsgDOM.innerHTML = html;
+                showSkinImg(skinObj.img.goddess);
+                var goddessObj = skinObj.samllNav.goddess;
+                if (goddessObj.length > 0) {
+                    var html = '<ul>';
+                    for (var i = 0; i < goddessObj.length; i++) {
+                        i === 0 ? html += '<li class="skin-image-active">'+ goddessObj[i] +'<li>'
+                                : html += '<li>'+ goddessObj[i] +'<li>';
+                    }
+                    skinImgMsgDOM.innerHTML = html;
+                }
                 skinImgMsgDOM.style.display = "block";
                 skinImgNavDOM.style.display = "none";
                 skinChangeDOM.style.display = "none";
@@ -252,19 +284,17 @@ document.getElementById("b-skin-nav").onclick = function (e) {
                 skinRecentUseDOM.style.display = "none";
                 break;
             case "star":
-                var html = '<ul>'+
-                                '<li class="skin-image-active">杨幂<li>'+
-                                '<li>刘诗诗<li>'+
-                                '<li>胡歌<li>'+
-                                '<li>邓紫棋<li>'+
-                                '<li>赵丽颖<li>'+
-                                '<li>马天宇</li>'+
-                                '<li>陈晓</li>'+
-                                '<li>陈伟霆</li>'+
-                                '<li>柳岩</li>'+
-                                '<li>吴奇隆</li>'+
-                           '</ul>';
-                skinImgMsgDOM.innerHTML = html;
+                console.log("star");
+                showSkinImg(skinObj.img.star);
+                var starObj = skinObj.samllNav.star;
+                if (starObj.length > 0) {
+                    var html = '<ul>';
+                    for (var i = 0; i < starObj.length; i++) {
+                        i === 0 ? html += '<li class="skin-image-active">'+ starObj[i] +'<li>'
+                                : html += '<li>'+ starObj[i] +'<li>';
+                    }
+                    skinImgMsgDOM.innerHTML = html;
+                }
                 skinImgMsgDOM.style.display = "block";
                 skinImgNavDOM.style.display = "none";
                 skinChangeDOM.style.display = "none";
@@ -274,6 +304,16 @@ document.getElementById("b-skin-nav").onclick = function (e) {
                 skinRecentUseDOM.style.display = "none";
                 break;
             case "scenery":
+                showSkinImg(skinObj.img.scenery);
+                var sceneryObj = skinObj.samllNav.scenery;
+                if (sceneryObj.length > 0) {
+                    var html = '<ul>';
+                    for (var i = 0; i < sceneryObj.length; i++) {
+                        i === 0 ? html += '<li class="skin-image-active">'+ sceneryObj[i] +'<li>'
+                                : html += '<li>'+ sceneryObj[i] +'<li>';
+                    }
+                    skinImgMsgDOM.innerHTML = html;
+                }
                 skinImgMsgDOM.style.display = "none";
                 skinImgNavDOM.style.display = "block";
                 skinChangeDOM.style.display = "none";
@@ -283,6 +323,16 @@ document.getElementById("b-skin-nav").onclick = function (e) {
                 skinRecentUseDOM.style.display = "none";
                 break;
             case "simple":
+                showSkinImg(skinObj.img.simple);
+                var simpleObj = skinObj.samllNav.simple;
+                if (simpleObj.length > 0) {
+                    var html = '<ul>';
+                    for (var i = 0; i < simpleObj.length; i++) {
+                        i === 0 ? html += '<li class="skin-image-active">'+ simpleObj[i] +'<li>'
+                                : html += '<li>'+ simpleObj[i] +'<li>';
+                    }
+                    skinImgMsgDOM.innerHTML = html;
+                }
                 skinImgMsgDOM.style.display = "none";
                 skinImgNavDOM.style.display = "block";
                 skinChangeDOM.style.display = "none";
@@ -291,7 +341,17 @@ document.getElementById("b-skin-nav").onclick = function (e) {
                 skinResultShowDOM.style.display = "block";
                 skinRecentUseDOM.style.display = "none";
                 break;
-            case "child-free":
+            case "childFree":
+                showSkinImg(skinObj.img.childFree);
+                var childFreeObj = skinObj.samllNav.childFree;
+                if (childFreeObj.length > 0) {
+                    var html = '<ul>';
+                    for (var i = 0; i < childFreeObj.length; i++) {
+                        i === 0 ? html += '<li class="skin-image-active">'+ childFreeObj[i] +'<li>'
+                                : html += '<li>'+ childFreeObj[i] +'<li>';
+                    }
+                    skinImgMsgDOM.innerHTML = html;
+                }
                 skinImgMsgDOM.style.display = "none";
                 skinImgNavDOM.style.display = "block";
                 skinChangeDOM.style.display = "none";
@@ -338,13 +398,13 @@ skinImgMsgDOM.onclick = function (e) {
     var getDOM = (e.target === undefined ? e.srcElement : e.target);
     getDOM.className = "skin-image-active";
 }
-
+// 开启自动换肤
 var skinRandomDOM = document.getElementById("b-skin-random");
 skinRandomDOM.onclick = function () {
     var skinCheckboxDOM = document.getElementsByClassName("skin-change-checkbox")[0];
     skinCheckboxDOM.getAttribute("id") == "b-skin-random-bg" ? skinCheckboxDOM.setAttribute("id", null) : skinCheckboxDOM.setAttribute("id", "b-skin-random-bg");
 }
-
+// 效果图预览
 var skinImgDOM = document.getElementById("b-skin-img");
 var skinResultDOM = document.getElementById("b-skin-result");
 skinImgDOM.onmousemove = function (e) {
@@ -352,6 +412,26 @@ skinImgDOM.onmousemove = function (e) {
     var resourceSRC = getDOM.getAttribute("src");
     resourceSRC !== null ? skinResultDOM.setAttribute("src", resourceSRC) : null;
 }
+// 不使用换肤
+document.getElementById("b-skin-bgno").onclick = function () {
+    changeCss("default");
+    bgImgShow(null);
+    var skinImgDOM = document.getElementById("b-skin-show");
+    (skinImgDOM.style.display == "none") ? (skinImgDOM.style.display = "block") : (skinImgDOM.style.display = "none");
+}
+// 点击图片就换肤
+var skinImgUlDOM = document.getElementById("b-skin-img-ul");
+var changeSkin = false;
+skinImgDOM.onclick = function (e) {
+    var getDOM = (e.target === undefined) ? e.srcElement : e.target;
+    var bgImg = getDOM.getAttribute("src");
+    bgImgShow(bgImg);
+    if (changeSkin == false) {
+        changeCss("skin");
+        changeSkin = true;
+    }
+}
+
 
 /**
  *  新闻栏----设置
@@ -417,6 +497,54 @@ setAddMenuDOM.onclick = function (e) {
 /**
  *  camera 
  */
+var cameraBtnDOM = document.getElementById("b-baidu-camera");
+var cameraBtnFixDOM = document.getElementById("b-baidu-camera-fix");
+
+var cameraBtnTextDOM = document.getElementById("b-camera-btn-text");
+var cameraBtnImgDOM = document.getElementById("b-camera-btn-img");
+var cameraBtnTextFixDOM = document.getElementById("b-camera-btn-text-fix");
+var camerBtnImgFixDOM = document.getElementById("b-camera-btn-img-fix")
+cameraBtnDOM.onclick = function () {
+    cameraBtnDOM.style.position = "static";
+    // camera 隐藏框
+    cameraUrlDOM.style.position = "absolute";
+    cameraUrlDOM.style.top = "170px";
+    cameraUrlDOM.style.display = "block";
+    // 百度一下
+    cameraBtnTextDOM.style.display = "none";
+    cameraBtnImgDOM.style.display = "inline-block";
+};
+cameraBtnFixDOM.onclick = function () {
+    cameraBtnFixDOM.style.position = "static";
+    // camera 隐藏框
+    cameraUrlDOM.style.position = "fixed";
+    cameraUrlDOM.style.top = "57px";
+    cameraUrlDOM.style.display = "block";
+    // 百度一下
+    cameraBtnTextFixDOM.style.display = "none";
+    camerBtnImgFixDOM.style.display = "inline-block";
+}
+// 隐藏
+var cameraCloseDOM = document.getElementById("b-camera-close");
+cameraCloseDOM.onclick = function () {
+    cameraBtnFixDOM.style.position = cameraBtnDOM.style.position = "relative";
+    cameraUrlDOM.style.display = "none";
+    // 百度一下
+    cameraBtnTextFixDOM.style.display = cameraBtnTextDOM.style.display = "block";
+    camerBtnImgFixDOM.style.display = cameraBtnImgDOM.style.display = "none";
+}
+
+/**
+ * 换一换
+ */
+var newsChangeDOM = document.getElementById("b-news-change");
+showNewsHot(0, 16);
+var length = 16;
+var start = 0;
+newsChangeDOM.onclick = function () {
+    start += 16;
+    showNewsHot(start, length);
+}
 
 
 
@@ -474,4 +602,43 @@ function showMenuNav () {
         i == 0 ? newsNavHTML += '<li id="nav-active">'+ menuObj.focus[i] +'</li>' : newsNavHTML += '<li>'+ menuObj.focus[i] +'</li>';
     }
     newsNavDOM.innerHTML = newsNavHTML;
+}
+
+/**
+ *  显示 换一换 的数据列表
+ */
+function showNewsHot (start, length) {
+    start > (hotNewsObj.length - length) ? start = hotNewsObj.length - length : start;
+    var newsListDOM = document.getElementById("b-news-rlist");
+    var end = start + length;
+    var html = '';
+    for (var i = start; i < end; i++ ) {
+        html += '<li><a href="'+ hotNewsObj[i].href +'">'+ hotNewsObj[i].title +'</a></li>';
+    }
+    newsListDOM.innerHTML = html;
+}
+
+/**
+ *   换肤图片
+ */
+function showSkinImg (obj) {
+    var skinImgUlDOM = document.getElementById("b-skin-img-ul");
+    var html = '';
+    for (var i = 0; i < obj.length; i++) {
+        html += '<li class="skin-li-position ipos-'+ i +'"><img class="skin-img-'+ i +'" src="'+ obj[i] +'" alt="832.jpg"/></li>';
+    }
+    skinImgUlDOM.innerHTML = html;
+}
+// 设置背景图片
+function bgImgShow (imgSrc) {
+    document.body.style.background = "url("+ imgSrc +") no-repeat fixed";
+}
+// 切换CSS样式
+function changeCss(name) {
+    var linkDOM = document.getElementsByTagName("link");
+    if (linkDOM.length > 0) {
+        var cssOld = linkDOM[1].getAttribute("href");
+        var cssNew = "css/"+ name +".css";
+        linkDOM[1].setAttribute("href", cssNew);
+    }
 }

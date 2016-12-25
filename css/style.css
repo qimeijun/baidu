@@ -3,9 +3,6 @@ body, a { font-size: 12px;  color: #555;  font-family: "微软黑体";}
 ul { list-style: none; }
 img, a { border: none; }
 a { text-decoration: none; }
-/*body {
-    background: url(./../images/baidu-bg.jpg) no-repeat fixed;
-}*/
 .cf:after {
     content: " ";
     height: 0px;
@@ -17,25 +14,10 @@ a { text-decoration: none; }
     -moz-box-shadow: 0 2px 2px rgba(0,0,0,0.07);
     box-shadow: 0 2px 2px rgba(0,0,0,0.07);
 }
-.default-bottom {
-    border-bottom: 1px solid #eae2e2;
-}
-.default-border {
-    border: 1px solid #eae2e2;
-}
-.white-color {
-    color: white;
-}
-.bg-color {
-    background-color: rgba(255,255,255,0.8);
-    /*IE8*/
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#19ffffff",endColorstr="#19ffffff");
-}
 
 /*头部*/
 .header {
-    padding: 0px 0px 10px 0px;
-    margin: 10px 0px 0px 10px;
+    padding: 10px 0px 10px 0px;
     background: rgba(1, 1, 1, 0);
 }
 .header-left {
@@ -96,7 +78,7 @@ a { text-decoration: none; }
     text-align: left;
 }
 .baidu-input {
-    width: 480px;
+    width: 490px;
     height: 35px;
     line-height: 35px;/*IE8*/
     padding-left: 10px;
@@ -118,14 +100,22 @@ a { text-decoration: none; }
 }
 .baidu-button {
     position: relative;
-    top: 0px;
-    right: 35px;
-    height: 38px;
-    border: none;
+    display: inline-block;
+    right: 30px;
+    height: 35px;
+    width: 100px;
+    text-align: center;
+    line-height: 35px;
     font-size: 16px;
-    padding: 0 20px 0 20px;
-    background-color: #38f;
+    background: #38f;
     cursor: pointer;
+}
+.camra-btn-img {
+    display: inline-block;
+    width: 18px;
+    height: 16px;
+    vertical-align: middle;
+    background: url(./../images/camera_layer.png) no-repeat;
 }
 .baidu-news {
     margin-top: 60px;    
@@ -135,11 +125,6 @@ a { text-decoration: none; }
     margin: auto;
     width: 893px;
 }
-/*.baidu-news-nav .news-nav {
-    margin: 0px;
-    padding: 0px;
-    border: 1px solid #eae2e2;
-}*/
 #nav-active {
     font-weight: bolder;
     color: white;
@@ -223,10 +208,6 @@ a { text-decoration: none; }
 .baidu-new-table img {
     margin: -2px;
 }
-/*.baidu-news-time {
-    font-size: 12px;
-    color: grey;
-}*/
 .baidu-news-font {
     padding-left: 10px;
 }
@@ -264,26 +245,22 @@ a { text-decoration: none; }
 .baidu-news-rtop-list {
     margin: 20px 0px 0px 0px;
 }
-.left-ul {
+.news-rlist-ul {
     float: left;
-    width: 140px;
+    width: 300px;
 }
-.right-ul {
-    float: right;
-    width: 140px;
-}
-.left-ul li, .right-ul li {
+.news-rlist-ul li {
     line-height: 30px;
-    display: bloack;
-    width: 130px;
+    display: inline-block;
+    width: 140px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow:hidden;
 }
-.left-ul a , .right-ul a {
+.news-rlist-ul a {
     font-size: 14px;
 }
-.left-ul > li > a:hover, .right-ul > li > a:hover {
+.news-rlist-ul > li > a:hover {
     text-decoration: underline;
     color: #38f;
 }
@@ -331,6 +308,8 @@ a { text-decoration: none; }
 }
 .header-setting-item {
     line-height: 20px;
+    background: white;
+    border: 1px solid #eae2e2;
     display: none;
 }
 .header-setting-item li {
@@ -412,14 +391,6 @@ a { text-decoration: none; }
     background-color: white;
     display: none;
 }
-/*.header-skin-nav {
-    padding: 0px;
-    border-bottom: 1px solid #eae2e2;
-}*/
-/*.skin-nav-ul {
-    margin: 0px;
-    padding: 0px;
-}*/
 .skin-nav-li, .skin-bg-opacity,.skin-bg-no {
     float: left;
     padding: 15px 10px 10px 10px;
@@ -501,19 +472,14 @@ a { text-decoration: none; }
 .header-skin-self-left {
     display: none;
 }
-.header-skin-table {
+.header-skin-ul {
+    position: relative;
     width: 587px;
     height: 179px;
-    
 }
-.header-skin-table td, .header-skin-table tr {
-    font-size:0;
-    border-collapse: collapse;
-    border: 1px solid white;
-}
-/*.skin-img-nav {
-    display: none;
-}*/
+.header-skin-ul li {
+    display: inline-block;
+} 
 .skin-img-nav > ul {
     margin: auto;
     width: 150px;
@@ -541,18 +507,70 @@ a { text-decoration: none; }
 .img-nav-next:hover, .img-nav-pre:hover {
     background-color: #d0d3d8;
 }
-.skin-img-big {
+.skin-li-position {
+    position: absolute;
+}
+.skin-img-0, .skin-img-6 {
     width: 195px;
     height: 119px;
     line-height: 119px;
     cursor: pointer;
 }
-.skin-img-small {
+.skin-img-1, .skin-img-2, .skin-img-3, .skin-img-4, .skin-img-5, .skin-img-7, .skin-img-8, .skin-img-9, .skin-img-10, .skin-img-11 {
     width: 97px;
     height: 59px;
     line-height: 59px;
     cursor: pointer;
 }
+.ipos-0 {
+    top: 0px;
+    left: 0px;
+}
+.ipos-1 {
+    top: 0px;
+    left: 196px;
+}
+.ipos-2 {
+    top:0px;
+    left: 294px;
+}
+.ipos-3 {
+    top: 0px;
+    left: 392px;
+}
+.ipos-4 {
+    top: 0px;
+    left: 490px;
+}
+.ipos-5 {
+    top: 60px;
+    left: 196px;
+}
+.ipos-6 {
+    top: 60px;
+    left: 294px;
+}
+.ipos-7 {
+    top: 60px;
+    left: 490px;
+}
+.ipos-8 {
+    top: 120px;
+    left: 0px;
+}
+.ipos-9 {
+    top: 120px;
+    left: 98px;
+}
+.ipos-10 {
+    top: 120px;
+    left: 196px;
+}
+.ipos-11 {
+    top: 120px;
+    left: 490px;
+}
+
 .header-skin-result {
     position: relative;
     float: right;
@@ -575,10 +593,6 @@ a { text-decoration: none; }
     margin-top: -20px;
     display: none;
 }
-/*.skin-img-msg > ul {
-    padding: 0px;
-    margin: 0px;
-}*/
 .skin-img-msg > ul > li {
     float: left;
     padding: 10px 5px;
@@ -785,8 +799,8 @@ a { text-decoration: none; }
 /*百度camera*/
 .baidu-camera-url {
     position: absolute;
-    z-index: 1;
-    width: 640px;
+    z-index: 3;
+    width: 600px;
     margin: auto;
     text-align: center;
     font-size: 16px;
@@ -796,7 +810,7 @@ a { text-decoration: none; }
 .camera-url-content {
     margin: 20px;
     height: 100px;
-    width: 600px;
+    width: 560px;
     background-color: #fafafa;
 }
 .camera-url-move {
@@ -849,4 +863,7 @@ a { text-decoration: none; }
     height: 18px;
     background: url(./../images/soutu_icons_sample.png) no-repeat -20px 0;
     cursor: pointer;
+}
+#b-camera-url, #b-camera-btn-img, #b-camera-btn-img-fix {
+    display: none;
 }
